@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiddenDev Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> HiddenDev Notes</h1>
+            <button id="add-note-btn" class="btn">
+                <i class="fas fa-plus"></i> New Note
+            </button>
+        </header>
+
+        <main>
+            <div class="notes-grid" id="notes-grid">
+                <!-- Notes will be dynamically inserted here -->
+                <div class="no-notes">
+                    <i class="fas fa-sticky-note"></i>
+                    <p>No notes yet. Click 'New Note' to get started!</p>
+                </div>
+            </div>
+
+            <!-- Note Editor (initially hidden) -->
+            <div class="note-editor" id="note-editor">
+                <div class="editor-header">
+                    <input type="text" id="note-title" placeholder="Note Title">
+                    <div class="editor-actions">
+                        <button id="save-note" class="btn">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                        <button id="cancel-edit" class="btn btn-cancel">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+                <textarea id="note-content" placeholder="Start writing your note here..."></textarea>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom Alert for Right-Click -->
+    <div id="custom-alert" class="alert-overlay" style="display: none;">
+        <div class="alert-box">
+            <h2>Action Disabled</h2>
+            <p>Right-clicking has been disabled on this page.</p>
+            <button id="alert-ok-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
