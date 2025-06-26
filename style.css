@@ -30,11 +30,214 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.search-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-text);
+    pointer-events: none;
+}
+
+.filter-options select {
+    padding: 0.5rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.editor-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editor-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.editor-toolbar button {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--text-color);
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editor-toolbar button:hover {
+    background-color: var(--secondary-color);
+}
+
+.separator {
+    width: 1px;
+    background-color: var(--border-color);
+    margin: 0 0.25rem;
+}
+
+.editor-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tags-input {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.editor-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: var(--secondary-color);
+}
+
+.editor-main {
+    display: flex;
+    height: calc(100% - 100px);
+}
+
+.editor-content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.title-editable, .content-editable {
+    width: 100%;
+    outline: none;
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    resize: none;
+    font-family: inherit;
+}
+
+.title-editable {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    min-height: 2.5rem;
+}
+
+.content-editable {
+    min-height: 300px;
+    line-height: 1.6;
+}
+
+.title-editable[contenteditable=true]:empty::before,
+.content-editable[contenteditable=true]:empty::before {
+    content: attr(data-placeholder);
+    color: var(--secondary-text);
+    pointer-events: none;
+}
+
+.note-preview {
+    width: 40%;
+    padding: 1rem;
+    border-left: 1px solid var(--border-color);
+    overflow-y: auto;
+    display: none;
+}
+
+.note-preview h1, .note-preview h2, .note-preview h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.note-preview ul, .note-preview ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.note-preview a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.note-preview a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        max-width: 100%;
+    }
+    
+    .editor-main {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .note-preview {
+        width: 100%;
+        height: 300px;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
 }
 
 h1 {
